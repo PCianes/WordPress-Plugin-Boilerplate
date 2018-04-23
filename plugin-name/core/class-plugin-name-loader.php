@@ -7,7 +7,7 @@
  * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/core
  */
 
 /**
@@ -18,7 +18,7 @@
  * run function to execute the list of actions and filters.
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/core
  * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Loader {

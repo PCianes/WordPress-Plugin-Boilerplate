@@ -3,14 +3,14 @@
 /**
  * The file that defines the core plugin class
  *
- * A class definition that includes attributes and functions used across both the
+ * A class definition that core attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/core
  */
 
 /**
@@ -24,7 +24,7 @@
  *
  * @since      1.0.0
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/core
  * @author     Your Name <email@example.com>
  */
 class Plugin_Name {
@@ -103,13 +103,13 @@ class Plugin_Name {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'core/class-plugin-name-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'core/class-plugin-name-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -121,6 +121,13 @@ class Plugin_Name {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+
+		/**
+		 * The class responsible for defining all actions that occur in the public-facing
+		 * side of the site and also into admin area, like libraries and helpers
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-helpers.php';
+		
 
 		$this->loader = new Plugin_Name_Loader();
 
@@ -157,6 +164,12 @@ class Plugin_Name {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$helpers = new 
+
+		// Instance all class you have into ADMIN folder and add the objet to the loader, 
+		// and remember to 'require_once' into admin class on the function: load_dependencies()
+		// similar this core class
+
 	}
 
 	/**
@@ -172,6 +185,10 @@ class Plugin_Name {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		// Instance all class you have into PUBLIC folder and add the objet to the loader, 
+		// and remember to 'require_once' into public class on the function: load_dependencies()
+		// similar this core class
 
 	}
 

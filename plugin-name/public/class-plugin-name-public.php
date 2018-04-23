@@ -52,6 +52,20 @@ class Plugin_Name_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->load_dependencies();
+	}
+
+	/**
+	 * Load the required dependencies for the Public facing functionality.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_dependencies() {
+		/**
+		 * The class responsible for ...
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) .  'public/class-plugin-name-class-name.php';
 	}
 
 	/**
