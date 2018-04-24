@@ -65,6 +65,7 @@ class Plugin_Name_Includes {
 		 * The class responsible for ...
 		 */
 		//require_once plugin_dir_path( dirname( __FILE__ ) ) .  'includes/class-plugin-name-class-name.php';
+		//$class_name = new Plugin_Name_Class_Name( $this->get_plugin_name(), $this->get_version() );
 
 		// Remember to 'require_once' all libraries and common class into this includes folder
 		// and also instance all class you have except static functions here int this class

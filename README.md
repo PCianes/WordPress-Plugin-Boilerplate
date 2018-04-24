@@ -18,6 +18,17 @@ The WordPress Plugin Boilerplate includes the following files:
 * The Boilerplate uses a strict file organization scheme that corresponds both to the WordPress Plugin Repository structure, and that makes it easy to organize the files that compose the plugin.
 * The project includes a `.pot` file as a starting point for internationalization.
 
+* New file `plugin-name-g` to work with the console (into plugin-name folder):
+	- `php plugin-name-g zip` to make a clean copy of the plugin into zip 
+	- `php plugin-name-g class NAME folder` to create a new file into the folder indicate
+	with the name: `class-plugin-name-NAME.php` with some base code to start to work 
+
+* Auto generation of some utilities with console (into plugin-name folder):
+	- `grunt` to make auto the `plugin-name.pot` into the folder `languages`
+	- `gulp` to start `test mode` in console and run all the test into `tests folder`
+	in auto mode when a file of the project is save it
+	- Note: for both you need run before in console `npm install` & `composer install`
+
 ## Installation
 
 The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs. For example, if your plugin is named 'example-me' then:

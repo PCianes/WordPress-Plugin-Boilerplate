@@ -8,6 +8,6 @@ gulp.task('phpunit', function() {
     });
 }); 
 
-gulp.task('tests', function() {
+gulp.task('default', function() {
     gulp.watch('**/*.php', { debounceDelay: 2000 }, ['phpunit']);   
 });

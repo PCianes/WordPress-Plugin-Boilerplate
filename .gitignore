@@ -9,6 +9,7 @@
 *.vi
 *~
 *.sass-cache
+*.lock
 
 # OS or Editor folders
 .DS_Store
@@ -38,3 +39,4 @@ intermediate
 .idea
 cache
 node_modules
+vendor
