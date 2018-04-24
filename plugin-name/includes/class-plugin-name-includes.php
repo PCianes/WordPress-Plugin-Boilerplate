@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The helpers functionality of the plugin.
+ * The includes & helpers functionality of the plugin.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -11,15 +11,15 @@
  */
 
 /**
- * The helpers-specific functionality of the plugin.
+ * The incldues & helpers functionality of the plugin.
  *
- * Defines the plugin nam and version
+ * Defines the plugin name and version
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Helpers {
+class Plugin_Name_Includes {
 
 	/**
 	 * The ID of this plugin.
@@ -64,7 +64,7 @@ class Plugin_Name_Helpers {
 		/**
 		 * The class responsible for ...
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) .  'includes/class-plugin-name-class-name.php';
+		//require_once plugin_dir_path( dirname( __FILE__ ) ) .  'includes/class-plugin-name-class-name.php';
 
 		// Remember to 'require_once' all libraries and common class into this includes folder
 		// and also instance all class you have except static functions here int this class
