@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -44,14 +43,14 @@ class Plugin_Name_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $plugin_name       The name of this plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
-		
+		$this->version     = $version;
+
 		$this->load_dependencies();
 	}
 
@@ -65,7 +64,7 @@ class Plugin_Name_Admin {
 		/**
 		 * The class responsible for ...
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) .  'admin/class-plugin-name-class-name.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-class-name.php';
 	}
 
 	/**

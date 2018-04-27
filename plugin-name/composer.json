@@ -2,12 +2,14 @@
     "name": "cianes-boilerplate/cianes-boilerplate",
     "description": "Fork of the WordPress-Plugin-Boilerplate from DevinVinson",
     "license": "GPL-2.0-or-later",
-    "author": {
+    "authors": [
+		{
             "name": "Pablo Cianes",
             "email": "pablo@pablocianes.com",
             "homepage": "https://pablocianes.com",
             "role": "Developer"
-    },
+		}
+	],
     "keywords": ["wordpress", "plugin", "framework", "boilerplate" ],
     "homepage": "https://github.com/PCianes/WordPress-Plugin-Boilerplate",
     "type": "wordpress-plugin",
@@ -15,9 +17,11 @@
         "php": ">5.2.4"
     },
     "suggest": {
-        "composer/installers": "~1.0"
+		"composer/installers": "~1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+		"phpunit/phpunit": "3.7.*",
+		"squizlabs/php_codesniffer": "3.*",
+        "wp-coding-standards/wpcs": "*"
     }
 }

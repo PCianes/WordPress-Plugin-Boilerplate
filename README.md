@@ -29,6 +29,13 @@ The WordPress Plugin Boilerplate includes the following files:
 	in auto mode when a file of the project is save it
 	- Note: for both you need run before in console `npm install` & `composer install`
 
+* PHP CodeSniffer with WordPress standards:
+    - You can check te code with WordPress standards with `squizlabs/php_codesniffer` & `wp-coding-standards/wpcs` already included with only make `composer-install`.
+    - After that to configure it set `vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs`.
+    - And also set `vendor/bin/phpcs --config-set default_standard WordPress`.
+    - If you have some software like `Visual Studio Code` (is free) and module like `vscode-phpcs` or similars, you can see the problems in the code during your work in auto mode. In another case you can do the same and see the problems in console with `vendor/bin/phpcs /path/to/code/file-name.php` or `vendor/bin/phpcs /path/to/code/folder-name`
+    - IMPORTANT: You can also solve most problems automatically by applying `phpcbf` instead of `phpcs` like `vendor/bin/phpcbf /path/to/code/file-name.php` or `vendor/bin/phpcbf /path/to/code/folder-name`
+
 
 ## Installation
 

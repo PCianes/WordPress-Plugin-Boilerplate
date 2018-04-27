@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -44,13 +43,13 @@ class Plugin_Name_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $plugin_name       The name of the plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->version     = $version;
 
 		$this->load_dependencies();
 	}
@@ -65,7 +64,7 @@ class Plugin_Name_Public {
 		/**
 		 * The class responsible for ...
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) .  'public/class-plugin-name-class-name.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-class-name.php';
 	}
 
 	/**
