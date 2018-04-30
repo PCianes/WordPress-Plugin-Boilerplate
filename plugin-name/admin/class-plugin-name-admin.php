@@ -64,7 +64,7 @@ class Plugin_Name_Admin {
 		/**
 		 * The class responsible for ...
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-class-name.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-class-name.php'; .
 	}
 
 	/**

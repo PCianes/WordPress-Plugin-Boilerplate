@@ -19,9 +19,9 @@ The WordPress Plugin Boilerplate includes the following files:
 * The project includes a `.pot` file as a starting point for internationalization.
 
 * New file `make` to work with the console (into plugin-name folder):
-	- `php make zip` to make a clean copy of the plugin into zip 
+	- `php make zip` to make a clean copy of the plugin into zip
 	- `php make class CLASS-NAME FOLDER-NAME` to create a new file into the `FOLDER-NAME` indicate
-	with the name: `class-plugin-name-CLASS-NAME.php` with some base code to start to work 
+	with the name: `class-plugin-name-CLASS-NAME.php` with some base code to start to work
 
 * Auto generation of some utilities with console (into plugin-name folder):
 	- `grunt` to make auto the `plugin-name.pot` into the folder `languages`
@@ -36,6 +36,11 @@ The WordPress Plugin Boilerplate includes the following files:
     - If you have some software like `Visual Studio Code` (is free) and module like `vscode-phpcs` or similars, you can see the problems in the code during your work in auto mode. In another case you can do the same and see the problems in console with `vendor/bin/phpcs /path/to/code/file-name.php` or `vendor/bin/phpcs /path/to/code/folder-name`
     - IMPORTANT: You can also solve most problems automatically by applying `phpcbf` instead of `phpcs` like `vendor/bin/phpcbf /path/to/code/file-name.php` or `vendor/bin/phpcbf /path/to/code/folder-name`
 
+* DEV MODE:
+    - The `admin bar` into WordPress dashboard put into different color and with a tag `DEV MODE` when you active `composer install` and some features to DEV with that.
+	- Into dashboard page `index.php` of the backend you can see a notice with some information about all you can do in dev mode like:
+		- Pretty error interface with Whoops. To see it in action just make a fatal error. ;-)
+		- Kint debugging helper. Inside your code insted of use var_dump($variable); try to use d( $variable ); for amazing debug.
 
 ## Installation
 

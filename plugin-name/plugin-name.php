@@ -37,6 +37,16 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
+ * The code that runs only in dev mode
+ * and we know that because of exists autolad.php into vendor folder
+ * when it is set 'composer install' in console to dev this plugin
+ */
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+	require_once __DIR__ . '/tests/dev/plugin-name-configuration.php';
+}
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in core/class-plugin-name-activator.php
  */
