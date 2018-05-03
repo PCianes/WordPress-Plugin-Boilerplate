@@ -2,9 +2,9 @@
 <?php
 
 class Plugin_Name_Generator
-{  
+{
     public $dir =__DIR__;
-   
+
     public function process($data)
     {
         switch ($data[1])
@@ -26,59 +26,59 @@ class Plugin_Name_Generator
         echo("Framework is packing the plugin \n");
 
         file_exists($this->dir.'/'.basename($this->dir).'.zip')?unlink($this->dir.'/'.basename($this->dir).'.zip'):false;
-        $zip = new ZipArchive(); 
-        $zip->open(basename($this->dir).'.zip', ZipArchive::CREATE); 
+        $zip = new ZipArchive();
+        $zip->open(basename($this->dir).'.zip', ZipArchive::CREATE);
 
-        $dirName =$this->dir; 
+        $dirName =$this->dir;
 
-        if (!is_dir($dirName)) { 
-            throw new Exception('Directory ' . $dirName . ' does not exist'); 
-        } 
+        if (!is_dir($dirName)) {
+            throw new Exception('Directory ' . $dirName . ' does not exist');
+        }
 
-        $dirName = realpath($dirName); 
-        if (substr($dirName, -1) != '/') { 
-            $dirName.= '/'; 
-        } 
+        $dirName = realpath($dirName);
+        if (substr($dirName, -1) != '/') {
+            $dirName.= '/';
+        }
 
-        /* 
-        * NOTE BY danbrown AT php DOT net: A good method of making 
-        * portable code in this case would be usage of the PHP constant 
-        * DIRECTORY_SEPARATOR in place of the '/' (forward slash) above. 
-        */ 
+        /*
+        * NOTE BY danbrown AT php DOT net: A good method of making
+        * portable code in this case would be usage of the PHP constant
+        * DIRECTORY_SEPARATOR in place of the '/' (forward slash) above.
+        */
 
-        $dirStack = array($dirName); 
-        //Find the index where the last dir starts 
-        $cutFrom = strrpos(substr($dirName, 0, -1), '/')+strlen($this->dir)+1; 
+        $dirStack = array($dirName);
+        //Find the index where the last dir starts
+        $cutFrom = strrpos(substr($dirName, 0, -1), '/')+strlen($this->dir)+1;
 
-        while (!empty($dirStack)) { 
-            $currentDir = array_pop($dirStack); 
-            $filesToAdd = array(); 
+        while (!empty($dirStack)) {
+            $currentDir = array_pop($dirStack);
+            $filesToAdd = array();
 
-            $dir = dir($currentDir); 
-           
-            while (false !== ($node = $dir->read())) { 
-                if (($node == 'node_modules') || ($node == 'vendor') || ($node == 'tests') ||($node == 'phpunit.xml') ||($node == 'gruntfile.js') ||($node == 'gulpfile.js') ||($node == 'package.json') || ($node == '..') || ($node == '.') || ($node=='.git')  || ($node=='composer.json') || ($node=='composer.lock') || ($node=='.gitignore') || ($node =='plugin-name-generator') || ($node=='readme.md') || ($node=='bitbucket-pipelines.yml') || ($node=='.gitmodules') ) { 
-                    continue; 
-                } 
-                if (is_dir($currentDir . $node)) { 
-                    array_push($dirStack, $currentDir . $node . '/'); 
-                } 
-                if (is_file($currentDir . $node)) { 
-                    $filesToAdd[] = $node; 
-                } 
-            } 
+            $dir = dir($currentDir);
+
+            while (false !== ($node = $dir->read())) {
+                if ( ($node == 'tests') || ($node == 'node_modules') || ($node == 'vendor') || ($node == 'tests') ||($node == 'phpunit.xml') ||($node == 'gruntfile.js') ||($node == 'gulpfile.js') ||($node == 'package.json') || ($node == '..') || ($node == '.') || ($node=='.git')  || ($node=='composer.json') || ($node=='composer.lock') || ($node=='.gitignore') || ($node =='plugin-name-generator') || ($node=='readme.md') || ($node=='bitbucket-pipelines.yml') || ($node=='.gitmodules') || ($node=='.editorconfig') || ($node=='.jshintrc') || ($node=='make') ) {
+                    continue;
+                }
+                if (is_dir($currentDir . $node)) {
+                    array_push($dirStack, $currentDir . $node . '/');
+                }
+                if (is_file($currentDir . $node)) {
+                    $filesToAdd[] = $node;
+                }
+            }
 
             $localDir = substr($currentDir, $cutFrom);
-            
-            $zip->addEmptyDir($localDir); 
-            foreach ($filesToAdd as $file) { 
+
+            $zip->addEmptyDir($localDir);
+            foreach ($filesToAdd as $file) {
                 $zip->addFile($currentDir . $file, $localDir . $file);
-                echo("Added $localDir$file into plugin  \n"); 
-            } 
-        } 
+                echo("Added $localDir$file into plugin  \n");
+            }
+        }
 
         $zip->close();
-        echo("The plugin's zip file is OK!"); 
+        echo("The plugin's zip file is OK!");
     }
 
 
@@ -87,7 +87,7 @@ class Plugin_Name_Generator
     $plugin_name = '$plugin_name';
     $version = '$version';
     $this1 = '$this->plugin_name = $plugin_name';
-    $this2 = '$this->version = $version';     
+    $this2 = '$this->version = $version';
     $input ="<?php
 
 /**
