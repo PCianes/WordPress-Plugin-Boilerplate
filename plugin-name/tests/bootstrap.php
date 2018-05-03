@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname( __FILE__ ) . '/wp-tests/functions.php';
+require_once dirname( __FILE__ ) . '/wp-tests/includes/functions.php';
 
 function _manually_load_environment() {
 
@@ -17,4 +17,4 @@ function _manually_load_environment() {
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_environment' );
 
-require dirname( __FILE__ ) . '/wp-tests/bootstrap.php';
+require dirname( __FILE__ ) . '/wp-tests/includes/bootstrap.php';
