@@ -41,6 +41,8 @@ The WordPress Plugin Boilerplate includes the following files:
 	- Into dashboard page `index.php` of the backend you can see a notice with some information about all you can do in dev mode like:
 		- Pretty error interface with Whoops. To see it in action just make a fatal error. ;-)
 		- Kint debugging helper. Inside your code insted of use var_dump($variable); try to use d( $variable ); for amazing debug.
+	- Into `tests folder` you have new file to test into different database wich you can setup with the file `wp-tests-config.php`
+	and the file `bootstrap.php` that execute the code to run and manually load the enviroment to test. Check also in the root of the plugin the file `phpunit.xml` to understad all the configuration about it.
 
 ## Installation
 
