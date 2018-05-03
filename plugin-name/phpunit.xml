@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit boostrap="vendor/autoload.php"
+<phpunit bootstrap="tests/bootstrap.php"
+		backupGlobals="false"
 		colors="true"
+		convertErrorsToExceptions="true"
+		convertNoticesToExceptions="true"
+		convertWarningsToExceptions="true"
 		verbose="true"
 		stopOnFailure="false">
-	<testsuites>
-		<testsuite name="Test suite">
-			<directory>tests</directory>
-		</testsuite>
-	</testsuites>
+		<testsuites>
+			<testsuite name="Test suite">
+				<directory>tests</directory>
+			</testsuite>
+		</testsuites>
 </phpunit>
