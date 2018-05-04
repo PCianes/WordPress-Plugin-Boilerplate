@@ -129,7 +129,10 @@ class Plugin_Name {
 
 		$includes = new Plugin_Name_Includes( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader = new Plugin_Name_Loader();
+		/**
+		 * Get loader using its singleton
+		 */
+		$this->loader = Plugin_Name_Loader::get_instance();
 
 	}
 
@@ -144,7 +147,7 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_I18n();
+		$plugin_i18n = new Plugin_Name_I18n( $this->plugin_name );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 

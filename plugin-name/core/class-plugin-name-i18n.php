@@ -25,6 +25,23 @@
  */
 class Plugin_Name_I18n {
 
+	/**
+	 * Unique identifier for retrieving translated strings.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $domain    Unique identifier for retrieving translated strings.
+	 */
+	protected $domain;
+
+	/**
+	 * Initialize the text domain for i18n.
+	 *
+	 * @since    1.0.0
+	 */
+	public function __construct( $domain ) {
+		$this->domain = $domain;
+	}
 
 	/**
 	 * Load the plugin text domain for translation.
@@ -34,7 +51,7 @@ class Plugin_Name_I18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'plugin-name',
+			$this->domain,
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
