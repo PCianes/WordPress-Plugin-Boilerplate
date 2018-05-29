@@ -12,7 +12,7 @@
  * @package           Plugin_Name
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       Plugin_Name
  * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
@@ -23,6 +23,21 @@
  * Text Domain:       plugin-name
  * Domain Path:       /languages
  */
+
+/*
+Plugin_Name is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+any later version.
+
+Plugin_Name is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Plugin_Name. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
+*/
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

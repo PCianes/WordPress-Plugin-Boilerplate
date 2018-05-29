@@ -53,18 +53,18 @@ function plugin_name_custom_admin_notices() {
 	$current_user = wp_get_current_user();
 
 	printf( '<div data-dismissible="notice-escritorio-forever" class="notice notice-info is-dismissible">
-			  <p>¡Hello %s! You are in <strong>DEV MODE</strong> because of run "composer install" in your console. Now you have some features to improve your dev about this plugin: </p>
+			  <p>¡Hello %s! You are in <code>DEV MODE</code> because of run "composer install" in your console. Now you have some features to improve your dev about this plugin: </p>
 			  <ul>
-				  <li>- Pretty error interface with <strong>Whoops</strong>. To see it in action just make a fatal error. ;-)</li>
-				  <li>- <strong>Kint</strong> debugging helper. Inside your code insted of use var_dump($variable);</strong> try to use <strong>d( $variable );</strong> for amazing debug.</li>
-				  <li>- Type <strong>into the console</strong> base in the root of the project if you already run "npm install" & "composer install":</li>
+				  <li>- Pretty error interface with <code>Whoops</code>. To see it in action just make a fatal error. ;-)</li>
+				  <li>- <code>Kint</code> debugging helper. Inside your code insted of use var_dump($variable);</code> try to use <code>d( $variable );</code> for amazing debug.</li>
+				  <li>- Type <code>into the console</code> base in the root of the project if you already run "npm install" & "composer install":</li>
 					<ol>
-						<li><strong>gulp</strong> to start test mode in console and run all the test into tests folder in auto mode when a file of the project is save it.</li>
-						<li><strong>grunt</strong> to make auto the plugin-name.pot into the folder languages.</li>
-						<li>PHP CodeSniffer with WordPress standards. To configure it set <strong>vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs.</strong>
-						And also set <strong>vendor/bin/phpcs --config-set default_standard WordPress</strong> --> More info into https://github.com/PCianes/WordPress-Plugin-Boilerplate</li>
-						<li><strong>php make class CLASS-NAME FOLDER-NAME</strong> to create a new file into the FOLDER-NAME indicate with the name: class-plugin-name-CLASS-NAME.php with some base code to start to work.</li>
-						<li><strong>php make zip</strong> to make a clean copy of the plugin into zip without all vendors and dev files.</li>
+						<li><code>gulp</code> to start test mode in console and run all the test into tests folder in auto mode when a file of the project is save it.</li>
+						<li><code>grunt</code> to make auto the plugin-name.pot into the languages folder, and <code>grunt watch</code> to make min files of CSS & JS. -->Stop with: <code>Ctrl + C</code></li>
+						<li>PHP CodeSniffer with WordPress standards. To configure it set <code>vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs.</code>
+						And also set <code>vendor/bin/phpcs --config-set default_standard WordPress</code> --> More info into https://github.com/PCianes/WordPress-Plugin-Boilerplate</li>
+						<li><code>php make class CLASS-NAME FOLDER-NAME</code> to create a new file into the FOLDER-NAME indicate with the name: class-plugin-name-CLASS-NAME.php with some base code to start to work.</li>
+						<li><code>php make zip</code> to make a clean copy of the plugin into zip without all vendors and dev files.</li>
 					</ol>
 					<li>Note: the features of "make zip & make class" always run also in clean dev copy without composer install.</li>
 			  </ul>
@@ -123,7 +123,7 @@ function plugin_name_render_admin_bar_css() {
 
 	$css_pattern = ob_get_clean();
 
-	vprintf( esc_html( $css_pattern ), esc_html( plugin_name_get_admin_bar_config( 'colors' ) ) );
+	vprintf( $css_pattern, plugin_name_get_admin_bar_config( 'colors' ) );
 }
 
 /**
