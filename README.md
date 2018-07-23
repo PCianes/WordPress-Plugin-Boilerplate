@@ -1,6 +1,8 @@
-# WordPress Plugin Boilerplate
+# WordPress Plugin Boilerplate compatible with Gutenberg
 
 A standardized, organized, object-oriented foundation for building high-quality WordPress Plugins.
+
+Now also compatible with Gutenberg. ;-)
 
 ## Contents
 
@@ -43,6 +45,17 @@ The WordPress Plugin Boilerplate includes the following files:
 		- Kint debugging helper. Inside your code insted of use var_dump($variable); try to use d( $variable ); for amazing debug.
 	- Into `tests folder` you have new files to test into different database wich you can setup with the file `/wp-tests/wp-tests-config.php` and the file `bootstrap.php` that execute the code to run and manually load the enviroment to test. For a good implementation of test you can see an example with some code as comments in the file `test-sample.php`.
 	- Check also in the root of the plugin the file `phpunit.xml` to understad all the configuration about it. In this last file avoid `bootstrap="tests/bootstrap.php"` if you don´t want to test with an extra database that you need to setup in the file `/wp-tests/wp-tests-config.php` and also previous create in your dev enviroment. IMPORTANT: This dev database is reset in each test.
+
+* GUTENBERG:
+	- This new folder work in similar way as `https://github.com/ahmadawais/create-guten-block` because of have their dependencies into the `package.json`. Hassle-free updates from this single dependency `cgb-scripts`.
+	- You can create new blocks base on the provided examples modifying existing ones or you can just copy & paste each folder from `plugin-name\gutenberg\src\basic` to for example--> `plugin-name\gutenberg\src\custom-block-name`.
+	- Remember to include the new subfolders references into the file `plugin-name\gutenberg\src\blocks.js` and keep the name of the main JS file of the block as `index.js` to easier reference.
+	- Work into each block with `Sass, React, JSX, and ES6` and send all work in a better compatible mode to `plugin-name\gutenberg\dist` with:
+		- First set the console into the folder `plugin-name\gutenberg` and run `npm install`.
+		- `npm-start` to development mode: watches for any changes and reports back any errors in your code.
+		- `npm run build` to finish and build production code into dist folder.
+	- All the code into `plugin-name\gutenberg\dist` is already enqueue by this boilerplate. Please see the files: `plugin-name\core\class-plugin-name.php` & `plugin-name\gutenberg\class-plugin-name-gutenberg.php`.
+
 
 ## Installation
 
@@ -96,6 +109,7 @@ For reference, [here's a discussion](http://make.wordpress.org/themes/2013/03/04
 
 Note that if you include your own classes, or third-party libraries, there are three locations in which said files may go:
 
+* `plugin-name/gutenberg` is for all about the new WordPress editor: Gutenberg
 * `plugin-name/core` is for all core and loader functionality
 * `plugin-name/admin` is for all admin-specific functionality
 * `plugin-name/public` is for all public-facing functionality
@@ -121,6 +135,10 @@ The current version of the Boilerplate was developed in conjunction with [Josh E
 
 The homepage is based on a design as provided by [HTML5Up](http://html5up.net), the Boilerplate logo was designed by Rob McCaskill of [BungaWeb](http://bungaweb.com), and the site `favicon` was created by [Mickey Kay](https://twitter.com/McGuive7).
 
+Since summer of 2018 is compatible with the new editor of WordPress: Gutenberg.
+
+The new features about Gutenberg have the dependencies to work base on [create-guten-block - Ahmad Awais.](https://github.com/ahmadawais/create-guten-block)
+
 ## Documentation, FAQs, and More
 
-If you’re interested in writing any documentation or creating tutorials please [let me know](http://devinvinson.com/contact/) .
+If you’re interested in writing any documentation or creating tutorials please [let me know](https://pablocianes.com/) .

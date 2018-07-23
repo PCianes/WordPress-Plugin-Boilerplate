@@ -77,6 +77,7 @@ class Plugin_Name {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->define_gutenberg_hooks();
 
 	}
 
@@ -120,6 +121,11 @@ class Plugin_Name {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+
+		/**
+		 * The class responsible for defining all actions that occur about new WordPress editor: GUTENBERG
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'gutenberg/class-plugin-name-gutenberg.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -189,6 +195,31 @@ class Plugin_Name {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+	}
+
+	/**
+	 * Register all of the hooks related to Gutenberg
+	 *
+	 * Instance all class you have into GUTENBERG folder and add the objet to the loader,
+	 * and remember to 'require_once' into gutenberg class on the function: load_dependencies()
+	 * similar this core class.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_gutenberg_hooks() {
+
+		$plugin_gutenberg = new Plugin_Name_Gutenberg( $this->get_plugin_name(), $this->get_version() );
+
+		$this->loader->add_action( 'enqueue_block_editor_assets', $plugin_gutenberg, 'enqueue_all_blocks_assets_editor' );
+		$this->loader->add_action( 'enqueue_block_assets', $plugin_gutenberg, 'enqueue_all_blocks_assets' );
+		$this->loader->add_action( 'enqueue_block_assets', $plugin_gutenberg, 'enqueue_all_blocks_assets_frontend' );
+
+		$this->loader->add_filter( 'block_categories', $plugin_gutenberg, 'add_custom_blocks_categories', 10, 2 );
+		$this->loader->add_action( 'init', $plugin_gutenberg, 'register_dynamic_blocks' );
+		$this->loader->add_action( 'init', $plugin_gutenberg, 'register_meta_fields' );
+		//$this->loader->add_filter( 'register_post_type_args', $plugin_gutenberg, 'add_templates_to_post_types', 20, 2 );
+
 	}
 
 	/**
