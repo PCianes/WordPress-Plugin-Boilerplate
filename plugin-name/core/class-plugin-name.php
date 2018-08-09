@@ -66,8 +66,8 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'Plugin_Name_Version' ) ) {
+			$this->version = Plugin_Name_Version;
 		} else {
 			$this->version = '1.0.0';
 		}

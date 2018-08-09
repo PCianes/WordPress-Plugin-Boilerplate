@@ -57,7 +57,7 @@ class Plugin_Name_Generator
             $dir = dir($currentDir);
 
             while (false !== ($node = $dir->read())) {
-                if ( ($node == 'LICENSE.txt') || ($node == '.vscode') || ($node == 'tests') || ($node == 'node_modules') || ($node == 'vendor') || ($node == 'tests') ||($node == 'phpunit.xml') ||($node == 'gruntfile.js') ||($node == 'gulpfile.js') ||($node == 'package.json') || ($node == '..') || ($node == '.') || ($node=='.git')  || ($node=='composer.json') || ($node=='composer.lock') || ($node=='.gitignore') || ($node =='plugin-name-generator') || ($node=='readme.md') || ($node=='bitbucket-pipelines.yml') || ($node=='.gitmodules') || ($node=='.editorconfig') || ($node=='.jshintrc') || ($node=='make') ) {
+                if ( ($node == '.eslintignore') || ($node == '.eslintrc.json') || ($node == 'package-lock.json') || ($node == 'LICENSE.txt') || ($node == '.vscode') || ($node == 'tests') || ($node == 'node_modules') || ($node == 'vendor') || ($node == 'tests') ||($node == 'phpunit.xml') ||($node == 'gruntfile.js') ||($node == 'gulpfile.js') ||($node == 'package.json') || ($node == '..') || ($node == '.') || ($node=='.git')  || ($node=='composer.json') || ($node=='composer.lock') || ($node=='.gitignore') || ($node =='plugin-name-generator') || ($node=='readme.md') || ($node=='bitbucket-pipelines.yml') || ($node=='.gitmodules') || ($node=='.editorconfig') || ($node=='.jshintrc') || ($node=='make') ) {
                     continue;
                 }
                 if (is_dir($currentDir . $node)) {

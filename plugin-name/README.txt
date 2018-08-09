@@ -3,7 +3,7 @@ Contributors: (this should be a list of wordpress.org userid's)
 Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 4.6
-Tested up to: 4.9.5
+Tested up to: 5.0
 Stable tag: trunk
 Requires PHP: 5.2.4
 License: GPLv2 or later
