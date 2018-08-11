@@ -16,8 +16,9 @@ const { Spinner, withAPIData, ServerSideRender, PanelBody, RangeControl } = wp.c
  * To avoid use withAPIData in editor
  * see https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
  * and only return the component ServerSideRender and controls but not declare here attributes
- * edit( { attributes } ) {
+ * edit( { attributes, setAttributes } ) {
 			// ensure the block attributes matches this plugin's name
+			const { number } = attributes;
 			return (
 				<div>
 					<ServerSideRender
@@ -30,8 +31,8 @@ const { Spinner, withAPIData, ServerSideRender, PanelBody, RangeControl } = wp.c
 								beforeIcon="arrow-left-alt2"
 								afterIcon="arrow-right-alt2"
 								label={ __( 'Range Control', 'plugin-name' ) }
-								value={ attributes.number }
-								onChange={ value => setAttributes( { number: value } ) }
+								value={ number }
+								onChange={ number => setAttributes( { number } ) }
 								min={ 1 }
 								max={ 10 }
 							/>
