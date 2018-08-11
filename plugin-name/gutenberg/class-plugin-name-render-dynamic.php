@@ -27,11 +27,8 @@ class Plugin_Name_Render_Dynamic {
 	 */
 	public static function block_name_dynamic( $attributes ) {
 
-		// $attributes is not allow for the moment in Gutenberg? --> solution: get_post_meta()
-		//$attributes = get_post_meta( get_the_ID(), 'plugin-name-meta-key-name' ); //array
-
 		$recent_posts = wp_get_recent_posts( [
-			'numberposts' => 5, //(int) $attributes[0],
+			'numberposts' => (int) $attributes['number'],
 			'post_status' => 'publish',
 		] );
 

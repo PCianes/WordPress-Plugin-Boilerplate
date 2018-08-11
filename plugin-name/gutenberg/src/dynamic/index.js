@@ -8,16 +8,38 @@ import './style.scss';
  * Internal block libraries
  */
 const { __ } = wp.i18n;
+const { InspectorControls } = wp.editor;
 const { registerBlockType } = wp.blocks;
-const { Spinner, withAPIData, ServerSideRender } = wp.components;
+const { Spinner, withAPIData, ServerSideRender, PanelBody, RangeControl } = wp.components;
 
 /**
  * To avoid use withAPIData in editor
  * see https://wordpress.org/gutenberg/handbook/blocks/creating-dynamic-blocks/
- * and only return the component ServerSideRender like
+ * and only return the component ServerSideRender and controls but not declare here attributes
  * edit( { attributes } ) {
- * 		return <ServerSideRender block="plugin-name/block-name-dynamic" attributes={ attributes } />;
-	}
+			// ensure the block attributes matches this plugin's name
+			return (
+				<div>
+					<ServerSideRender
+						block="plugin-name/block-name-dynamic"
+						attributes={ attributes }
+					/>
+					<InspectorControls>
+						<PanelBody>
+							<RangeControl
+								beforeIcon="arrow-left-alt2"
+								afterIcon="arrow-right-alt2"
+								label={ __( 'Range Control', 'plugin-name' ) }
+								value={ attributes.number }
+								onChange={ value => setAttributes( { number: value } ) }
+								min={ 1 }
+								max={ 10 }
+							/>
+						</PanelBody>
+					</InspectorControls>
+				</div>
+			);
+		},
  */
 
 registerBlockType(

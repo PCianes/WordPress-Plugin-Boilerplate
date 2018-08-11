@@ -169,6 +169,12 @@ class Plugin_Name_Gutenberg {
 		 * Hook server side rendering into render callback
 		 */
 		register_block_type( 'plugin-name/block-name-dynamic', array(
+			'attributes'      => array(
+				'number' => array(
+					'type' => 'number',
+					'default' => 5
+				),
+			),
 			'render_callback' => array( Plugin_Name_Render_Dynamic::class, 'block_name_dynamic'),
 		 	)
 		);
