@@ -219,6 +219,7 @@ class Plugin_Name {
 		$this->loader->add_action( 'init', $plugin_gutenberg, 'register_dynamic_blocks' );
 		$this->loader->add_action( 'init', $plugin_gutenberg, 'register_meta_fields' );
 		//$this->loader->add_filter( 'register_post_type_args', $plugin_gutenberg, 'add_templates_to_post_types', 20, 2 );
+		//$this->loader->add_filter( 'allowed_block_types', $plugin_gutenberg, 'allowed_blocks_to_post_types', 20, 2 );
 
 	}
 

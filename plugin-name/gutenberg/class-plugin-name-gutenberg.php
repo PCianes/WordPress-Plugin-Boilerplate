@@ -230,4 +230,29 @@ class Plugin_Name_Gutenberg {
 
 	}
 
+	/**
+	 * Limit and allowed blocks into a post type 
+	 *
+	 * @since    1.0.0
+	 */
+	public function allowed_blocks_to_post_types( $allowed_block_types, $post ) {
+
+		/**
+		 * List of core blocks: 'core/block-name'
+		 * archives, audio, button, categories, code, column, columns, coverImage, embed, file, freeform,
+		 * gallery, heading, html, image, latestComments, latestPosts, list, more, nextpage, paragraph,
+		 * preformatted, pullquote, quote, reusableBlock, separator, shortcode, spacer, subhead,
+		 * table, textColumns, verse, video
+		 */
+		if ( $post->post_type === 'book' ) {
+			return array(
+			  'core/paragraph',
+			  'core/image',
+			  'core/list'
+			);
+		}
+
+		return $allowed_block_types;
+
+	}
 }
